@@ -1,0 +1,15 @@
+// Base imports used in the theme
+
+// Our variables
+// --------------------------------------------------
+// Import our variables to override Bootstraps default ones
+@import "variables";
+
+// Bootstrap Core
+// --------------------------------------------------
+@import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+// Our mixins
+// --------------------------------------------------
+@import "mixins";
+

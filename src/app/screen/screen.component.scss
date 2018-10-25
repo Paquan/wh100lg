@@ -1,0 +1,57 @@
+div.screen-body {
+  background-color: black;
+  color: #FFFFFF;
+  min-height: 100vh;
+
+  > div:first-child {
+    min-height: calc(100vh - 154px);
+  }
+}
+
+h1.headline {
+  color: #fff;
+  margin-bottom: 200px;
+}
+
+ul {
+  font-size: 30px;
+}
+
+.scoreWrapper {
+  font-size: 36px;
+  margin-top: 50px;
+}
+
+.line {
+  border-top: 2px #fff solid;
+  position: relative;
+  height: 40px;
+  background-color: black;
+}
+
+.logs {
+  position: relative;
+  top: 40px;
+  }
+
+@keyframes animation {
+  0% { top: 40px; }
+  100% { top: 0px; }
+}
+
+.animatedPoints {
+  position: relative;
+  top: 0px;
+  animation-name: animation;
+  animation-duration: 0.2s;
+  animation-timing-function: cubic-bezier(0.6, -0.28, 0.74, 0.05);;
+}
+
+.animatedWords {
+  position: relative;
+  top: 0px;
+  animation-name: animation;
+  animation-duration: 0.2s;
+  animation-timing-function: cubic-bezier(0.6, -0.28, 0.74, 0.05);;
+}
+

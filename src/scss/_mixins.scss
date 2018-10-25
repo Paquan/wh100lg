@@ -1,0 +1,25 @@
+//
+// Own mixins
+// --------------------------------------------------
+// Additional global mixins which are meant to be used accross components.
+//
+// Local mixins (for use in specific components) should be placed within these
+// corresponding files.
+//
+
+@mixin opacity($opacity) {
+	// Opacity for oldIEs
+	$opacity-ie: ($opacity * 100);
+
+	opacity: $opacity;
+	filter: alpha(opacity=$opacity-ie);
+}
+
+@mixin visually-hidden {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}

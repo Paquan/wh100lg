@@ -1,0 +1,15 @@
+.question-container {
+  min-height: calc(100vh - 154px);
+}
+
+label, input[type=text] {
+  margin: 5px 0;
+}
+
+.log-button {
+  margin: 20px 0;
+}
+
+// input[type=radio] {
+//   display: none;
+// }

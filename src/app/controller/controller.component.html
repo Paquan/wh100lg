@@ -1,0 +1,47 @@
+<header class="header">
+  <a routerLink="/home" class="btn-back">Spiel neustarten</a>
+</header>
+<div class="question-container text-center container">
+  <div class="row">
+    <h3>{{questionIndex+1}}. {{questions[questionIndex].question}}</h3>
+    <div class="col-xs-6">
+      <h3>{{player1}} sagt:</h3>
+      <div class="options">
+        <div class="option" *ngFor="let option of questions[questionIndex].options">
+          <label>{{option.answer}}
+            <input type="radio" id="option{{questionIndex}}-Player1" name="answerOfPlayer1" [(ngModel)]="answersOfPlayer1[questionIndex]" value="{{option.answer}}">
+          </label>
+        </div>
+        <input type="text" placeholder="Antwort" [(ngModel)]="answersOfPlayer1[questionIndex]" name="answerOfPlayer1" (click)="clear(questionIndex)">
+      </div>
+      <button class="btn btn-secondary log-button" (click)="logAnswerOfPlayer1()" [disabled]="!answersOfPlayer1[questionIndex]">Antwort loggen</button>
+      <button class="btn btn-secondary log-button" (click)="logPointsOfPlayer1()" [disabled]="!answersOfPlayer1[questionIndex] || !loggedAnswersOfPlayer1[questionIndex]">Punkte loggen</button>
+    </div>
+    <div class="col-xs-6">
+      <h3>{{player2}} sagt:</h3>
+      <div class="options">
+        <div class="option" *ngFor="let option of questions[questionIndex].options">
+          <label>{{option.answer}}
+            <input type="radio" id="option{{questionIndex}}-Player2" name="answerOfPlayer2" [(ngModel)]="answersOfPlayer2[questionIndex]" value="{{option.answer}}">
+          </label>
+        </div>
+        <input type="text" placeholder="Antwort" [(ngModel)]="answersOfPlayer2[questionIndex]" name="answerOfPlayer2" (click)="clear(questionIndex)">
+      </div>
+      <button class="btn btn-secondary log-button" (click)="logAnswerOfPlayer2()" [disabled]="!answersOfPlayer2[questionIndex]">Antwort loggen</button>
+      <button class="btn btn-secondary log-button" (click)="logPointsOfPlayer2()" [disabled]="!answersOfPlayer2[questionIndex] || !loggedAnswersOfPlayer2[questionIndex]">Punkte loggen</button>
+    </div>
+  </div>
+  <div class="failButtonWrapper">
+    <button class="btn btn-secondary log-button failButton" (click)="notAllowedSound()">X</button>
+  </div>
+</div>
+
+<div class="navigationButtons">
+  <button class="btn btn-default btn-back pull-left" [disabled]="questionIndex === 0" (click)="questionBefore()"><i class="glyphicon glyphicon-menu-left"></i>Zurück</button>
+  <button class="btn btn-primary btn-next pull-right" [disabled]="questionIndex === questions.length-1" (click)="nextQuestion()">Nächste Frage<i class="glyphicon glyphicon-menu-right"></i></button>
+</div>
+
+<audio id="textSound" preload="auto" src="../assets/audio/textRichtig.mp3"></audio>
+<audio id="scoreSound" preload="auto" src="../assets/audio/zahlRichtig.mp3"></audio>
+<audio id="failSound" preload="auto" src="../assets/audio/fail.mp3"></audio>
+<audio id="notAllowedSound" preload="auto" src="../assets/audio/failfinal.mp3"></audio>

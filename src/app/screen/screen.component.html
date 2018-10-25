@@ -1,0 +1,55 @@
+<div class="screen-body">
+  <div class="container">
+    <h1 class="headline">{{questionIndex+1}}. {{questions[questionIndex].question}}</h1>
+    <div class="row text-center">
+      <div class="col-xs-5 text-center">
+        <ul>
+          <li [ngClass]="{'animatedWords' : answersOfPlayer1[questionIndex], 'logs' : !answersOfPlayer1[questionIndex] }">
+            {{answersOfPlayer1[questionIndex] ? answersOfPlayer1[questionIndex] : '.'}}
+          </li>
+          <li class="line"></li>
+          <!-- <li [ngClass]="{'animatedWords' : playerGaveWrongAnswer(answersOfPlayer1[questionIndex]), 'logs' : !playerGaveWrongAnswer(answersOfPlayer1[questionIndex])}">
+          {{answersOfPlayer1[questionIndex] ? answersOfPlayer1[questionIndex] : '-'}}
+        </li> -->
+          <!-- <li class="line"></li> -->
+        </ul>
+      </div>
+
+      <div class="col-xs-1 text-center">
+        <ul>
+          <li [ngClass]="{'animatedPoints' : animationsOfPlayer1[questionIndex], 'logs' : !animationsOfPlayer1[questionIndex] }">
+            {{percentOfPlayer1 ? percentOfPlayer1 : 0}}
+          </li>
+          <li class="line"></li>
+        </ul>
+      </div>
+      <div class="col-xs-1 text-center">
+        <ul>
+          <li [ngClass]="{'animatedPoints' : animationsOfPlayer2[questionIndex], 'logs' : !animationsOfPlayer2[questionIndex] }">
+            {{percentOfPlayer2 ? percentOfPlayer2 : 0}}
+          </li>
+          <li class="line"></li>
+        </ul>
+      </div>
+      <div class="col-xs-5 text-center">
+        <ul>
+          <li [ngClass]="{'animatedWords' : answersOfPlayer2[questionIndex], 'logs' : !answersOfPlayer2[questionIndex] }">
+            {{answersOfPlayer2[questionIndex] ? answersOfPlayer2[questionIndex] : '.'}}
+          </li>
+          <li class="line"></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="scoreWrapper container row text-center">
+    <div class="col-xs-5 total-score">
+      <div>{{player1}}</div>
+      <div>{{scoreOfPlayer1}}</div>
+    </div>
+    <div class="col-xs-2"></div>
+    <div class="col-xs-5 total-score">
+      <div>{{player2}}</div>
+      <div>{{scoreOfPlayer2}}</div>
+    </div>
+  </div>
+</div>
